@@ -1,0 +1,13 @@
+[credential]
+	helper = store
+[alias]
+	ci = commit
+	co = checkout
+	ps  = push
+	l  = log --pretty=format:'%C(blue)%h%C(red)%d%C(white) %C(green)(%cr) %n%C(white)%s%n%C(yellow)Author: %C(cyan)%cn%n%C(yellow)Date: %C(cyan)%cD%n'
+	s  = status -s
+	st = status
+[core]
+	editor = vim
+[push]
+	followTags = true
