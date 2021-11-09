@@ -97,6 +97,12 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias ni="npm install"
+alias nid="npm install -D"
+alias nr="npm run"
+
+
 SPACESHIP_PROMPT_ORDER=(
   user          # Username section
   dir           # Current directory section
