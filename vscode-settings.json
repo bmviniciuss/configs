@@ -1,38 +1,29 @@
 {
-  "workbench.colorTheme": "Omni",
-  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Moonlight II Italic",
+  "workbench.iconTheme": "bearded-icons",
   "workbench.editor.labelFormat": "short",
-
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 0,
-
   "editor.fontFamily": "'Cascadia Code', 'Fira Code','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-  "editor.fontSize": 16,
   "editor.fontLigatures": true,
-  "editor.tabSize": 4,
+  "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.minimap.enabled": false,
-  "editor.snippetSuggestions": "inline",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.fixAll.tslint": true,
     "source.fixAll.stylelint": true
   },
   "editor.renderLineHighlight": "all",
-  "editor.rulers": [80, 120],
-  "editor.renderIndentGuides": true,
+  "editor.rulers": [
+    80,
+    120
+  ],
   "editor.renderWhitespace": "boundary",
-
-  "terminal.integrated.shell.linux": "/bin/zsh",
-  "terminal.integrated.fontSize": 14,
-
   "explorer.confirmDragAndDrop": false,
-
   "breadcrumbs.enabled": true,
-
   "explorer.compactFolders": false,
-
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -50,26 +41,12 @@
     "**/.git/subtree-cache/**": true,
     "**/node_modules/*/**": true
   },
-
   "emmet.triggerExpansionOnTab": true,
   "emmet.includeLanguages": {
-    "javascript": "html"
+    "javascriptreact": "html",
+    "typescriptreact": "html"
   },
-
-
-  "gitlens.codeLens.recentChange.enabled": false,
-  "gitlens.codeLens.authors.enabled": false,
-  "gitlens.codeLens.enabled": false,
-
   "typescript.suggest.autoImports": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
-
   "javascript.suggest.autoImports": true,
-
-  "material-icon-theme.activeIconPack": "nest",
-
-  "material-icon-theme.files.associations": {
-    "ormconfig.json": "database",
-    "tsconfig.json": "tune",
-  }
 }
