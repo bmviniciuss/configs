@@ -102,8 +102,6 @@ source $ZSH/oh-my-zsh.sh
 alias ni="npm install"
 alias nid="npm install -D"
 alias nr="npm run"
-alias capi="cd ~/Cotabox/cotabox-api"
-alias cfront="cd ~/Cotabox/cotabox-front"
 
 SPACESHIP_PROMPT_ORDER=(
   user          # Username section
