@@ -44,3 +44,4 @@ SPACESHIP_CHAR_SUFFIX=" "
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
+source /usr/share/doc/fzf/examples/key-bindings.zsh
