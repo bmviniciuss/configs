@@ -1,47 +1,52 @@
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-export ZSH="$HOME/.oh-my-zsh"
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.local/bin:$GOROOT/bin:$GOBIN:$PATH
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$(go env GOPATH)/bin
 
-alias s="source ~/.zshrc"
-alias ni="npm install"
-alias nid="npm install -D"
-alias nr="npm run"
-alias c="code"
+# General Aliases
 alias d="docker"
+alias dc="docker compose"
+alias s="source ~/.zshrc"
+alias l="eza -lah"
+alias ls="eza"
+alias sl=ls
 
-ssh-load() {
-  eval "$(ssh-agent -s)"
-  ssh-add ~/.ssh/id_ed25519 
+# Git Alias
+alias g="git"
+alias ga="git add"
+alias gcm="git commit -m"
+alias gco="git checkout"
+alias gd="git diff"
+alias gl="git log"
+alias gp="git push"
+alias gs="git status"
+alias gst="git stash"
+alias gstp="git stash pop"
+alias gstl="git stash list"
+
+function take {
+  mkdir -p "$1"
+  cd "$1"
 }
 
-ZSH_THEME="spaceship"
-plugins=(git sudo zsh-autosuggestions)
+# history
+[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
 
-source $ZSH/oh-my-zsh.sh
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
 
-SPACESHIP_PROMPT_ORDER=(
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  git           # Git section (git_branch + git_status)
-  golang
-  node
-  exec_time     # Execution time
-  line_sep      # Line break
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
-)
-SPACESHIP_USER_SHOW=always
-SPACESHIP_PROMPT_ADD_NEWLINE=false
-SPACESHIP_CHAR_SYMBOL="❯"
-SPACESHIP_CHAR_SUFFIX=" "
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
-# Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
 
-source /usr/share/doc/fzf/examples/key-bindings.zsh
+# Startfish
+eval "$(starship init zsh)"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
