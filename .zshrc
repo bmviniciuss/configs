@@ -1,27 +1,35 @@
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$(go env GOPATH)/bin
+export PATH="~/.local/bin:$PATH"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # General Aliases
-alias d="docker"
-alias dc="docker compose"
 alias s="source ~/.zshrc"
 alias l="eza -lah"
 alias ls="eza"
 alias sl=ls
+alias zed=zeditor
+
+# Docker
+alias d="docker"
+alias dc="docker compose"
 
 # Git Alias
 alias g="git"
 alias ga="git add"
-alias gcm="git commit -m"
+alias gci="git commit"
 alias gco="git checkout"
+
 alias gd="git diff"
 alias gl="git log"
-alias gp="git push"
-alias gs="git status"
-alias gst="git stash"
-alias gstp="git stash pop"
-alias gstl="git stash list"
 
+alias gps="git push"
+alias gpso="git push --set-upstream origin HEAD"
+
+alias gpl="git pull"
+alias gplo="git pull origin"
+
+alias gs="git status"
+
+# Functions
 function take {
   mkdir -p "$1"
   cd "$1"
@@ -39,14 +47,13 @@ setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
 
+
+# Zsh Plugins
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source <(fzf --zsh)
 
-
-
-# Startfish
+# Starship
 eval "$(starship init zsh)"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+. ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/golang/set-env.zsh

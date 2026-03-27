@@ -1,5 +1,34 @@
 {
+	"[dockercompose]": {
+		"editor.autoIndent": "advanced",
+		"editor.defaultFormatter": "redhat.vscode-yaml",
+		"editor.insertSpaces": true,
+		"editor.quickSuggestions": {
+			"comments": false,
+			"other": true,
+			"strings": true
+		},
+		"editor.tabSize": 2,
+		"editor.formatOnSave": true
+	},
+	"[json]": {
+		"editor.tabSize": 2,
+		"editor.formatOnSave": true
+	},
+	"[jsonc]": {
+		"editor.tabSize": 2,
+		"editor.formatOnSave": true
+	},
+	"[go]": {
+		"editor.codeActionsOnSave": {
+			"source.fixAll": "always",
+			"source.organizeImports": "always"
+		},
+		"editor.formatOnSave": true,
+		"editor.formatOnSaveMode": "file"
+	},
 	"breadcrumbs.enabled": true,
+	"editor.fontFamily": "'0xProto Nerd Font Mono'",
 	"editor.fontLigatures": true,
 	"editor.inlineSuggest.enabled": true,
 	"editor.insertSpaces": true,
@@ -16,20 +45,19 @@
 	"editor.smoothScrolling": true,
 	"editor.stickyScroll.enabled": true,
 	"editor.tabSize": 2,
-	"explorer.compactFolders": false,
-	"explorer.confirmDelete": false,
-	"explorer.confirmDragAndDrop": false,
+	"explorer.confirmDelete": true,
+	"explorer.confirmDragAndDrop": true,
 	"files.exclude": {
-		"**/.git": true,
-		"**/.svn": true,
-		"**/.hg": true,
 		"**/.DS_Store": true,
-		"**/CVS": true,
-		"**/node_modules": true,
+		"**/.git": true,
+		"**/.hg": true,
+		"**/.svn": true,
 		"**/*.class": true,
 		"**/*.ctxt": true,
 		"**/*.pkg": true,
-		"**/*.pkh": true
+		"**/*.pkh": true,
+		"**/CVS": true,
+		"**/node_modules": true
 	},
 	"files.insertFinalNewline": true,
 	"files.watcherExclude": {
@@ -37,9 +65,56 @@
 		"**/.git/subtree-cache/**": true,
 		"**/node_modules/*/**": true
 	},
+	"go.addTags": {
+		"promptForTags": true
+	},
+	"go.diagnostic.vulncheck": "Imports",
+	"go.editorContextMenuCommands": {
+		"addImport": true,
+		"addTags": true,
+		"benchmarkAtCursor": false,
+		"compilerDetails": false,
+		"debugTestAtCursor": true,
+		"fillStruct": false,
+		"generateTestForFile": false,
+		"generateTestForFunction": true,
+		"generateTestForPackage": false,
+		"playground": true,
+		"removeTags": false,
+		"testAtCursor": true,
+		"testCoverage": true,
+		"testFile": true,
+		"testPackage": false,
+		"toggleTestFile": true
+	},
+	"go.experiments": {
+		"testExplorer": true
+	},
+	"go.lintFlags": [
+		"--fast-only",
+		"--allow-parallel-runners"
+	],
+	"go.lintOnSave": "file",
+	"go.lintTool": "golangci-lint-v2",
+	"go.survey.prompt": false,
+	"go.testExplorer.enable": true,
+	"go.testExplorer.showDynamicSubtestsInEditor": true,
+	"go.useLanguageServer": true,
+	"gopls": {
+		"formatting.gofumpt": true,
+		"ui.semanticTokens": true
+	},
+	"testing.automaticallyOpenPeekViewDuringAutoRun": true,
+	"testing.gutterEnabled": true,
 	"window.titleBarStyle": "custom",
 	"window.zoomLevel": 0,
-	"workbench.colorTheme": "Bearded Theme Vivid Black",
 	"workbench.editor.labelFormat": "short",
+	"errorLens.enabledDiagnosticLevels": [
+		"error",
+		"warning",
+		"info",
+		"hint"
+	],
+	"workbench.colorTheme": "Bearded Theme Arc EolStorm",
 	"workbench.iconTheme": "bearded-icons"
 }
