@@ -11,3 +11,6 @@
 	editor = vim
 [push]
 	followTags = true
+[user]
+	name = NAME
+	email = EMAIL
