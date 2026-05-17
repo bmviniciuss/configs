@@ -12,6 +12,7 @@ git/       → ~/.gitconfig
 starship/  → ~/.config/starship.toml
 tmux/      → ~/.tmux.conf
 alacritty/ → ~/.config/alacritty/{alacritty.toml,catppuccin-mocha.toml}
+nvim/      → ~/.config/nvim (LazyVim starter)
 ```
 
 `vscode-settings.json` is kept in the repo for reference but is not deployed by Stow. Copy or link it manually:
@@ -55,6 +56,21 @@ After editing zsh modules, reload with `s` or `source ~/.zshrc`.
 ### Tmux
 
 Uses [TPM](https://github.com/tmux-plugins/tpm) with `tmux-sensible` and [Catppuccin](https://github.com/catppuccin/tmux) (mocha). After `make install`, start tmux and press `prefix + I` to install plugins.
+
+### Neovim (LazyVim)
+
+Based on the [LazyVim starter](https://github.com/LazyVim/starter). If you already have Neovim config, back it up first ([LazyVim install guide](https://www.lazyvim.org/installation)):
+
+```sh
+mv ~/.config/nvim{,.bak}
+mv ~/.local/share/nvim{,.bak}    # optional
+mv ~/.local/state/nvim{,.bak}    # optional
+mv ~/.cache/nvim{,.bak}          # optional
+```
+
+Then `make install`, run `nvim` once to bootstrap plugins, and `:LazyHealth` to verify.
+
+Customize in `nvim/.config/nvim/lua/` (see comments in `plugins/example.lua`).
 
 ### Alacritty
 
