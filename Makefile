@@ -1,6 +1,6 @@
 STOW     ?= stow
 TARGET   ?= $(HOME)
-PACKAGES ?= zsh git starship tmux alacritty nvim
+PACKAGES ?= zsh git starship tmux alacritty
 
 .PHONY: install uninstall restow status
 
