@@ -10,7 +10,9 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # Plugins
 zinit light zsh-users/zsh-autosuggestions
+zinit ice wait'0'
 zinit light zsh-users/zsh-completions
+zinit ice wait'0' atinit'zpmod source-study'
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 autoload -Uz _zinit
@@ -18,6 +20,7 @@ autoload -Uz _zinit
 
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
+export PATH=$HOME/.opencode/bin:$PATH
 
 # asdf
 . ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/golang/set-env.zsh
@@ -93,5 +96,6 @@ function gwadd() {
 
 eval "$(fzf --zsh)"
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 
 [[ -n "$ZSH_PROFILE" ]] && zprof
