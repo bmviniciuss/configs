@@ -12,7 +12,6 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit light zsh-users/zsh-autosuggestions
 zinit ice wait'0'
 zinit light zsh-users/zsh-completions
-zinit ice wait'0' atinit'zpmod source-study'
 zinit light zdharma-continuum/fast-syntax-highlighting
 
 autoload -Uz _zinit
