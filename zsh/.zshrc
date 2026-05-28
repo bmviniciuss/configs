@@ -10,7 +10,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 # Plugins
 zinit light zsh-users/zsh-autosuggestions
-zinit ice wait'0'
+zinit ice wait'0' lucid
 zinit light zsh-users/zsh-completions
 zinit light zdharma-continuum/fast-syntax-highlighting
 
@@ -100,5 +100,12 @@ eval "$(zoxide init zsh)"
 [[ -n "$ZSH_PROFILE" ]] && zprof
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+_lazy_load_nvm() {
+  unset -f nvm node npm npx pnpm yarn corepack
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+}
+
+for cmd in nvm node npm npx pnpm yarn corepack; do
+  eval "$cmd() { _lazy_load_nvm; $cmd \"\$@\"; }"
+done
