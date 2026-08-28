@@ -21,6 +21,8 @@ autoload -Uz _zinit
 typeset -U path PATH
 path=(
   "$HOME/.local/bin"
+  "$HOME/go/bin"
+  /usr/local/go/bin
   $path
 )
 
