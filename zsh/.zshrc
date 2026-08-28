@@ -18,94 +18,48 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 # PATH
-export PATH="$HOME/.local/bin:$PATH"
-export PATH=$HOME/.opencode/bin:$PATH
-
-# asdf
-. ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/golang/set-env.zsh
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+typeset -U path PATH
+path=(
+  "$HOME/.local/bin"
+  $path
+)
 
 # History
 [ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=50000
+SAVEHIST=50000
 
 setopt extended_history
 setopt hist_expire_dups_first
 setopt hist_ignore_dups
+setopt hist_ignore_all_dups
 setopt hist_ignore_space
+setopt hist_reduce_blanks
 setopt hist_verify
-setopt inc_append_history
+setopt share_history
 
-# Gemeral Aliases
-alias s="source ~/.zshrc"
-alias l="eza -lah"
-alias ls="eza"
-alias sl=ls
-alias zed=zeditor
+# Options
+setopt auto_cd
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt interactive_comments
+setopt no_beep
 
-# Docker Aliases
-alias d="docker"
-alias dc="docker compose"
+# Completions
+autoload -Uz compinit
+compinit
+zinit cdreplay -q
 
-# k8s
-alias k="kubectl"
-alias kc="kubectx"
-alias kn="kubens"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu select
 
-# Git Aliases
-alias g="git"
-alias ga="git add"
-alias gs="git status"
-alias gci="git commit"
-alias gco="git checkout"
-alias gd="git diff"
-alias gl="git log"
+# Local config
+ZSH_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+[[ -f "$ZSH_CONFIG_DIR/aliases.zsh" ]] && source "$ZSH_CONFIG_DIR/aliases.zsh"
+[[ -f "$ZSH_CONFIG_DIR/functions.zsh" ]] && source "$ZSH_CONFIG_DIR/functions.zsh"
 
-alias gf="git fetch"
-alias gfo="git fetch origin"
-
-alias gb="git branch"
-alias gbd="git branch -d"
-
-alias gps="git push"
-alias gpso="git push --set-upstream origin HEAD"
-
-alias gpl="git pull"
-alias gplo="git pull origin"
-
-alias gw="git worktree"
-alias gwa="git worktree add"
-alias gwr="git worktree remove"
-alias gwl="git worktree list"
-
-# Functions
-function take {
-  mkdir -p "$1"
-  cd "$1"
-}
-
-# Git Worktree Add
-function gwadd() {
-  local base_branch="${2:-origin/main}"
-  if gwa -b $1 $1 $base_branch; then
-    cd ./$1
-  fi
-}
-
-eval "$(fzf --zsh)"
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
+(( $+commands[fzf] )) && eval "$(fzf --zsh)"
+(( $+commands[starship] )) && eval "$(starship init zsh)"
+(( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
 
 [[ -n "$ZSH_PROFILE" ]] && zprof
-
-export NVM_DIR="$HOME/.nvm"
-_lazy_load_nvm() {
-  unset -f nvm node npm npx pnpm yarn corepack
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
-}
-
-for cmd in nvm node npm npx pnpm yarn corepack; do
-  eval "$cmd() { _lazy_load_nvm; $cmd \"\$@\"; }"
-done
