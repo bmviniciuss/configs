@@ -11,7 +11,7 @@ zsh/       → ~/.zshrc
 git/       → ~/.gitconfig
 starship/  → ~/.config/starship.toml
 tmux/      → ~/.tmux.conf
-alacritty/ → ~/.config/alacritty/{alacritty.toml,catppuccin-mocha.toml}
+alacritty/ → ~/.config/alacritty/alacritty.toml
 ```
 
 `vscode-settings.json` is kept in the repo for reference but is not deployed by Stow. Copy or link it manually:
@@ -48,9 +48,4 @@ Uses [TPM](https://github.com/tmux-plugins/tpm) with `tmux-sensible` and [Catppu
 
 ### Alacritty
 
-Uses [Catppuccin mocha](https://github.com/catppuccin/alacritty) via `general.import`. Theme file is vendored from upstream; update with:
-
-```sh
-curl -LO --output-dir alacritty/.config/alacritty \
-  https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
-```
+Uses JetBrainsMono Nerd Font Mono. Alacritty falls back to the terminal default colors (no imported theme).
