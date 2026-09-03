@@ -1,6 +1,5 @@
 # General
 alias s="exec zsh"
-alias zed=zeditor
 
 if (( $+commands[eza] )); then
   alias ls="eza --group-directories-first"
