@@ -1,0 +1,117 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "icon_theme": "Colored Zed Icons Theme Dark",
+  "ui_font_size": 16,
+  "ui_font_family": "JetBrains Mono NL",
+  "buffer_font_size": 15,
+  "buffer_font_family": "JetBrains Mono NL",
+  "buffer_font_features": {
+    "liga": false,
+  },
+  "terminal": {
+    "font_family": "JetBrains Mono NL",
+  },
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark Pro",
+  },
+  "code_lens": "on",
+  "ui_font_weight": 500,
+  "tabs": {
+    "file_icons": true,
+    "git_status": true,
+  },
+  "title_bar": {
+    "show_menus": true,
+    "show_branch_name": true,
+    "show_worktree_name": true,
+    "show_branch_status_icon": true,
+  },
+  "diff_view_style": "split",
+  "cli_default_open_behavior": "new_window",
+  "which_key": {
+    "enabled": true,
+  },
+  "git_panel": {
+    "entry_primary_click_action": "project_diff",
+    "tree_view": true,
+    "status_style": "label_color",
+    "file_icons": true,
+  },
+  "project_panel": {
+    "git_status_indicator": true,
+    "diagnostic_badges": true,
+    "file_icons": true,
+    "scrollbar": {
+      "show": "auto",
+    },
+    "bold_folder_labels": true,
+    "indent_size": 15.0,
+    "default_width": 300,
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "diagnostics": {
+    "button": true,
+    "inline": {
+      "enabled": true,
+    },
+  },
+  "show_whitespaces": "boundary",
+  "base_keymap": "VSCode",
+  "tab_size": 2,
+  "languages": {
+    "Go": {
+      "tab_size": 2,
+      "format_on_save": "on",
+      "colorize_brackets": true,
+      "formatter": "language_server",
+      "code_actions_on_format": {
+        "source.organizeImports": true,
+      },
+      "show_whitespaces": "boundary",
+    },
+  },
+  "lsp": {
+    "gopls": {
+      "initialization_options": {
+        "gofumpt": true,
+        "directoryFilters": ["-/node_modules", "-/.git"],
+        "symbolScope": "workspace",
+        "staticcheck": true,
+        "templateExtensions": ["tmpl"],
+        "experimentalPostfixCompletions": true,
+        "analyses": {
+          "nilness": true,
+          "unusedparams": true,
+          "unusedvariable": true,
+          "unusedwrite": true,
+          "useany": true,
+          "ST1000": false, // https://go.dev/gopls/analyzers#st1000-incorrect-or-missing-package-comment
+        },
+        "codelenses": {
+          "gc_details": true,
+        },
+        "hints": {
+          "assignVariableTypes": true,
+          "compositeLiteralFields": true,
+          "compositeLiteralTypes": true,
+          "constantValues": true,
+          "functionTypeParameters": true,
+          "parameterNames": true,
+          "rangeVariableTypes": true,
+        },
+      },
+    },
+  },
+}
