@@ -67,6 +67,25 @@
       "enabled": true,
     },
   },
+  "scroll_beyond_last_line": "one_page",
+  "indent_guides": {
+    "enabled": true,
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": true,
+    },
+  },
+  "format_on_save": "on",
+  "inlay_hints": {
+    "enabled": true,
+  },
+  "file_types": {
+    "Dockerfile": ["Dockerfile*"],
+  },
+  "search": {
+    "excluded_dirs": ["node_modules", ".git", "vendor", "dist"],
+  },
   "show_whitespaces": "boundary",
   "base_keymap": "VSCode",
   "tab_size": 2,
