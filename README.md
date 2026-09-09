@@ -12,6 +12,9 @@ git/       → ~/.gitconfig
 starship/  → ~/.config/starship.toml
 tmux/      → ~/.tmux.conf
 alacritty/ → ~/.config/alacritty/alacritty.toml
+ghostty/   → ~/.config/ghostty/config
+herdr/     → ~/.config/herdr/config.toml
+zed/       → ~/.config/zed/settings.json
 ```
 
 `vscode-settings.json` is kept in the repo for reference but is not deployed by Stow. Copy or link it manually:
